@@ -10,15 +10,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faAt, faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faAt, faUser, faUserSecret, faLock, faEye, faEyeSlash, faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+library.add(faAt, faUserSecret, faLock, faEye, faEyeSlash, faRightToBracket)
+
 const app = createApp(App)
-library.add(faAt)
 
 app.use(createPinia())
 app.use(router)
 app.use(bootstrap)
 app.use(library)
-app.use(FontAwesomeIcon)
-app.use(faUserSecret, faAt)
+app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount('#app')

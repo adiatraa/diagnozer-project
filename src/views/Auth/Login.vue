@@ -1,113 +1,138 @@
 <template>
-    <div class="login-container">
-      <div class="second-layer">
-        <div class="left-container">
+  <div class="login-container">
+    <div class="second-container">
+      <div class="left-container">
           <div class="website-logo">
             <a href="Login.vue">
             <img class="logo" src="../../assets/images/logo.png" alt="">
             </a>
           </div>
-          <h2 style="margin-left: 295px; margin-top: 12px; font-family: 'Poppins'; font-size: 25px;">Diagnozer</h2>
+          <h style="margin-top: 12px; font-family: 'Roboto'; font-style: normal; font-weight: 500; font-size: 40px; align-self: stretch;">Welcome Back!</h>
+          <h style="margin-top: -28px;font-family: 'Roboto'; font-style: normal; font-weight: 400; font-size: 24px; align-self: stretch;">Please insert your credentials</h>
           <div class="login-form">
-            <h2>Login</h2>
             <form @submit.prevent="login">
             <div class="form-box">
-                
-                <input type="text" id="email" v-model="email" required="required"/>
-                <span>Email</span>
+              <input type="text" id="email" v-model="email" placeholder="Email" required="required"/>
+              <div class="icon">
+                <font-awesome-icon :icon="['fas', 'at']" style=""/>
+              </div>
             </div>
             <div class="form-box">
-                <input type="password" id="password" v-model="password" required="required"/>
-                <span>Password</span>
+              <input :type="showPassword ? 'text' : 'password'"
+                      id="password"
+                      v-model="password"
+                      placeholder="Password"
+                      required="required"/>
+              <div class="icon lock-icon">
+                <font-awesome-icon :icon="['fas', 'lock']" />
+              </div>
+              <div class="icon eye-icon" @click="togglePassword">
+                <font-awesome-icon :icon="showPassword ? ['fas', 'eye'] : ['fas', 'eye-slash']" />
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="button-login" >
+                <font-awesome-icon :icon="['fas', 'right-to-bracket']" />
+                Login
+              </button>
             </form>
           </div>
-        </div>
-        <div class="right-container">
-          <div class="cover">
+      </div>
+      <div class="right-container">
+        <div class="cover">
             <img src="../../assets/images/cover.png" alt="">
-          </div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        email: '',
-        password: ''
-      };
-    },
-    methods: {
-      login() {
-        // Add your login logic here
-        // You can access the email and password with this.email and this.password
-      }
-    }
-  };
-  </script>
-  
-  <style scoped>
+  </div>
+</template>
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      showPassword: false,
+    };
+  },
+  methods: {
+    togglePassword() {
+      this.showPassword = !this.showPassword;
+    },
+    login() {
+      // Your login logic here
+    },
+  },
+};
+</script>
+
+<style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap');
+
 .login-container {
-    background-color: #003D5B;
+    background-color: #F4F6F9;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.second-layer {
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    width: 1450px; /* Set the desired width */
-    height: 630px; /* Set the desired height */
-    align-items: center;
+.second-container {
+  display: flex;
+  padding: 32px;
+  align-items: center;
+  align-content: space-between;
+  flex-wrap: wrap;
+  background-color: #FAFAFA;
+  border-radius: 8px;
+  border: 1px solid var(--gray_secondary, #C1C1C1);
+  width: 1450px; 
+  height: 630px; 
 }
 
 .left-container{
-  float: left;
-  background-color: white;
-  width: 50%;
+  display: flex;
   height: 100%;
-  border-radius: 20px 0 0 20px;
+  padding: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border: 1px solid var(--grayish_white, #E6E6E6);
+  width: 50%;
+  border-radius: 8px;
 }
 
 .website-logo{
-  margin-top: 60px;
-  margin-left: 45%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 16px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.website-logo img{
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .right-container{
-  float: right;
-  background-color: #FAFAFA;
-  width: 50%;
+  display: flex;
   height: 100%;
-  border-radius: 0 20px 20px 0;
+  padding: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border: 1px solid var(--grayish_white, #E6E6E6);
+  width: 50%;
+  border-radius: 8px;
 }
 
 .cover img{
-  width: 350px;
-  margin: 60px 0 0 195px;
-}
-
-  .login-form{
-    background-color: #003D5B;
-    margin: 40px 0 0 60px;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    width: 600px;
-  }
-  
-.login-form h2{
-  margin-bottom: 30px;
-  color: white;
+  width: 360px;
+  margin: -40px 0 0 140px;
 }
 
   .form-box {
@@ -117,78 +142,57 @@
     margin-bottom: 35px;
   }
 
-  .form-box:last-child
-  {
-    margin-bottom: 0;
-  }
-  
-  .form-box input {
+  .form-box .icon{
     position: absolute;
-    top: 0;
     left: 0;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black; 
+    font-size: 1.2em;
+  }
+  .form-box input {
     width: 100%;
-    border: 1px solid #777777;
-    background: transparent;
-    padding: 10px;
+    outline: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     border-radius: 4px;
-    box-sizing: border-box;
-    outline: none;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 300;
-  }
-
-  .form-box span{
-    position: absolute;
-    top: 1px;
-    left: 1px;
+    border: 1px solid #777777;
     padding: 10px;
-    display: inline-block;
-    pointer-events: none;
-    color: #777777;
-    font-size: 16px;
-    transition: 0.5s;
-    pointer-events: none;
+    padding-left: 60px;
+    background: var(--grayish_white, #E6E6E6);
+    font-size: 1.2em;
+    color: black;
   }
 
-  .login-form .form-box input:focus,
-  .login-form .form-box input:valid
-  {
-    color: white;
-    border: 1px solid white;
-  }
-
-  .login-form .form-box input:focus + span,
-  .login-form .form-box input:valid + span
-  {
-    color: white;
-    height: 30px;
-    line-height: 30px;
-    transform: translate(-2px, -27px) scale(0.88);
-    background-color: #003D5B;
-  }
-
-  /* .login-form .form-box input:focus ~ span,
-  .login-form .form-box valid:focus ~ span
-  {
-    transform: translateX(-10px) translateY(-39px);
-    font-size: 12px;
-  } */
-  
-
-  /* .form-input input:valid ~ span,
-  .form-input input:focus ~ span
-  .btn {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 3px;
+  .form-box .icon.eye-icon {
+    left: auto;
+    right: 0;
     cursor: pointer;
-  } */
-  
-  .btn:hover {
-    background-color: #0056b3;
+}
+
+  .button-login{
+    display: flex;
+    width: 550px;
+    height: 46px;
+    padding: 17px 34px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: var(--primary_dark_blue, #003D5B);
+    border-color: transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 130%;
   }
-  </style>
-  
+
+
+</style>
