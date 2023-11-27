@@ -6,6 +6,7 @@ import SearchDiagnosis from '../views/SearchDiagnosis.vue'
 import SurveyDiagnosis from '../views/SurveyDiagnosis.vue'
 import Login from '../views/Auth/Login.vue'
 import NotFound from '../views/NotFound.vue'
+import '../assets/main.css'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -1,4 +1,5 @@
 <template>
+  <!-- <img class="background-img" src="../../assets/images/background.png" alt=""> -->
   <div class="login-container">
     <div class="second-container">
       <div class="left-container">
@@ -14,7 +15,7 @@
             <div class="form-box">
               <input type="text" id="email" v-model="email" placeholder="Email" required="required"/>
               <div class="icon">
-                <font-awesome-icon :icon="['fas', 'at']" style=""/>
+                <font-awesome-icon :icon="['far', 'envelope']" />
               </div>
             </div>
             <div class="form-box">
@@ -22,7 +23,9 @@
                       id="password"
                       v-model="password"
                       placeholder="Password"
-                      required="required"/>
+                      required="required"
+                      @input="validatePassword"
+                      :class="{ 'is-invalid': passwordError }"/>
               <div class="icon lock-icon">
                 <font-awesome-icon :icon="['fas', 'lock']" />
               </div>
@@ -70,8 +73,10 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap');
 
+
 .login-container {
-    background-color: #F4F6F9;
+    background-image: url("../../assets/images/background.png");
+    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,6 +104,7 @@ export default {
   align-items: flex-start;
   gap: 24px;
   border: 1px solid var(--grayish_white, #E6E6E6);
+  border-right: 1px solid transparent !important;
   width: 50%;
   border-radius: 8px;
 }
@@ -121,13 +127,15 @@ export default {
 .right-container{
   display: flex;
   height: 100%;
+  margin-left: -5px;
   padding: 64px;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   border: 1px solid var(--grayish_white, #E6E6E6);
+  border-left: 1px solid transparent !important;
   width: 50%;
-  border-radius: 8px;
+  border-radius: 0px 8px 8px 0px;
 }
 
 .cover img{

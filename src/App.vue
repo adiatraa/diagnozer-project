@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import Navbar from '../src/components/Navbar.vue'
 </script>
 
 <template>
@@ -10,7 +11,8 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/searchDiagnosis">Search Diagnosis</RouterLink> |
         <RouterLink to="/surveyDiagnosis">Survey Diagnosis</RouterLink>
     </div> -->
-  <RouterView />
+    <RouterView />
+  <!-- </div> -->
 </template>
 
 <style scoped>
