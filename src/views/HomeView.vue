@@ -71,10 +71,9 @@
       </ul>  
     </div>
     <div class="home_content">
+      
       <div class="text">Home Content</div>
-      <!-- <n-card title="Card" hoverable>
-        Card Content
-      </n-card> -->
+      
     </div>
   </div>
 </template>
@@ -274,9 +273,5 @@ export default {
   font-size: 25px;
   font-weight: 500;
   margin: 12px;
-}
-
-.n-card {
-  max-width: 300px;
 }
 </style>
