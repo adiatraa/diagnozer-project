@@ -21,8 +21,8 @@
             </div>
         </div>
         <ul class="nav_list" style="margin-left: -40px;">
-          <li>
-            <a href="#">
+          <li class="active-nav">
+            <a href="/">
                 <i><font-awesome-icon :icon="['fas', 'house']" /></i>
                 <span class="links_name">Home</span>
           </a>
@@ -31,25 +31,25 @@
             <span class="title_text" id="title">Diagnosis</span>
           </li>
           <li>
-            <a href="#">
+            <a href="/currentDiagnosis">
               <i><font-awesome-icon :icon="['fas', 'file-waveform']" /></i>
               <span class="links_name">Current Diagnosis</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/diagnosisHistory">
               <i><font-awesome-icon :icon="['fas', 'notes-medical']" /></i>
               <span class="links_name">Diagnosis History</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/searchDiagnosis">
               <i><font-awesome-icon :icon="['fas', 'kit-medical']" /></i>
               <span class="links_name">Search Diagnosis</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/surveyDiagnosis">
               <i><font-awesome-icon :icon="['fas', 'stethoscope']" /></i>
               <span class="links_name">Survey Diagnosis</span>
             </a>
@@ -58,7 +58,7 @@
             <span class="title_text" id="title">Users</span>
           </li>
           <li>
-            <a href="#">
+            <a href="/userSetting">
             <i><font-awesome-icon :icon="['fas', 'gear']" /></i>
               <span class="links_name">User Settings</span>
             </a>
@@ -107,7 +107,8 @@
                 
 
                 <template v-slot:append>
-                  <v-btn style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'arrow-right']" /></v-btn>
+                  <v-btn href="/currentDiagnosis" style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'angle-right']" />
+                  </v-btn>
                 </template>
               </v-toolbar>
 
@@ -119,8 +120,8 @@
         </v-container>
 
         <v-container style="max-width: 96%;">
-          <v-row justify="start">
-            <v-card width="680" height="240" style="margin-right: 28px;">
+          <v-row justify="flex-start">
+            <v-card width="940" height="240" style="margin-right: 28px;" class="card-progressive">
               <v-toolbar color="#003D5B" theme="dark" style="padding: 10px 0 10px 0;">
                 <template v-slot:prepend>
                   <i style="margin-left: 10px; font-size: 30px;"><font-awesome-icon :icon="['fas', 'notes-medical']" /></i>
@@ -133,7 +134,7 @@
                 
 
                 <template v-slot:append>
-                  <v-btn style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'arrow-right']" /></v-btn>
+                  <v-btn href="/diagnosisHistory" style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'angle-right']" /></v-btn>
                 </template>
               </v-toolbar>
 
@@ -142,7 +143,7 @@
               </v-card-text>
             </v-card>
 
-            <v-card width="680" height="240">
+            <v-card width="430" height="240" class="card-progressive">
               <v-toolbar color="#003D5B" theme="dark" style="padding: 10px 0 10px 0;">
                 <template v-slot:prepend>
                   <i style="margin-left: 10px; font-size: 30px;"><font-awesome-icon :icon="['fas', 'stethoscope']" /></i>
@@ -155,14 +156,14 @@
                 
 
                 <template v-slot:append>
-                  <v-btn style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'arrow-right']" /></v-btn>
+                  <v-btn href="/surveyDiagnosis" style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'angle-right']" /></v-btn>
                 </template>
               </v-toolbar>
 
               <v-card-text>
                 <div class="text-h6 text-center">Quick Diagnosis Survey</div>
                 <p class="subtitle-text-1 text-center">a Quick diagnosis will help you know yourself better</p>
-                <v-btn style="font-size: 14px; padding-left: 15px; margin-left: 220px;">
+                <v-btn href="/surveyDiagnosis" style="font-size: 14px; padding-left: 15px; margin-left: 125px;">
                   <font-awesome-icon :icon="['fas', 'stethoscope']" style="margin-right: 10px;"/>
                   Start Now!
                 </v-btn>
@@ -173,12 +174,12 @@
         
         <v-container style="max-width: 96%;" class="bottom">
           <footer style="margin-top: 50px;">
-            <v-row justify="start">
+            <v-row justify="space-around">
               <img class="logo" src="../assets/images/logo.png" alt="" style="width: 44px; height: 44px;">
               <p class="text-h6" style="margin-left: 12px; margin-bottom: -20px;">
                 Diagnozer
                 <p class="text-subtitle-3" style="margin-top: -12px; font-size: 10px; margin-bottom: 2px;">SMART on FHIR Health Care System</p>
-                <v-btn style="font-size: 14px; padding-left: 15px;">
+                <v-btn href="https://github.com/adiatraa/diagnozer-project" style="font-size: 14px; padding-left: 15px;">
                   <font-awesome-icon :icon="['fas', 'code']" style="margin-right: 10px;"/>
                   Documentation
                 </v-btn>
@@ -376,6 +377,16 @@ body{
   background: #fff;
 }
 
+.sidebar ul li.active-nav{
+  color: #003D5B;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.sidebar ul li.active-nav a{
+  color: #003D5B;
+}
+
 .sidebar ul li a i{
   height: 50px;
   min-width: 50px;
@@ -481,7 +492,7 @@ body{
 }
 
 .home_content .nav_head ul li.subtitle_page{
-  flex: 2 620px;
+  flex: 9 240px;
   font-size: 14px;
   font-weight: 400;
   color: #767676;
@@ -500,6 +511,7 @@ body{
   font-size: 16px;
   font-weight: 300;
   padding: 8px 10px;
+  outline: none;
 }
 
 .home_content .nav_head ul li.search-icon i{

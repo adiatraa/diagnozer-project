@@ -4,6 +4,7 @@ import CurrentDiagnosis from '../views/CurrentDiagnosis.vue'
 import DiagnosisHistory from '../views/DiagnosisHistory.vue'
 import SearchDiagnosis from '../views/SearchDiagnosis.vue'
 import SurveyDiagnosis from '../views/SurveyDiagnosis.vue'
+import UserSetting from '../views/UserSetting.vue'
 import Login from '../views/Auth/Login.vue'
 import NotFound from '../views/NotFound.vue'
 import '../assets/main.css'
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/surveyDiagnosis',
       name: 'SurveyDiagnosis',
       component: SurveyDiagnosis
+    },
+    {
+      path: '/userSetting',
+      name: 'UserSetting',
+      component: UserSetting
     },
     {
       path: '/:catchAll(.*)',

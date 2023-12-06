@@ -16,8 +16,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { faAt,faCode,faArrowRight,faMaximize,faUser, faUserSecret, faLock, faEye, faEyeSlash, faRightToBracket, faAngleDoubleLeft, faAnglesLeft, faBars, faHouse, faMagnifyingGlass, faFileWaveform, faNotesMedical, faKitMedical, faStethoscope, faGear, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-library.add(faAt, faGithub,faLinkedin,faCode,faArrowRight,faMaximize, faUserSecret, faLock, faEye, faEyeSlash, faRightToBracket, faAngleDoubleLeft, faEnvelope, faAnglesLeft, faBars, faHouse, faMagnifyingGlass, faFileWaveform, faNotesMedical, faKitMedical, faStethoscope, faGear, faArrowRightFromBracket, faUser)
+import { faAt,faCode,faArrowRight,faMaximize,faUser, faUserSecret, faLock, faEye, faEyeSlash, faRightToBracket, faAngleDoubleLeft, faAnglesLeft, faBars, faHouse, faMagnifyingGlass, faFileWaveform, faNotesMedical, faKitMedical, faStethoscope, faGear, faArrowRightFromBracket, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+library.add(faAt, faAngleRight,faGithub,faLinkedin,faCode,faArrowRight,faMaximize, faUserSecret, faLock, faEye, faEyeSlash, faRightToBracket, faAngleDoubleLeft, faEnvelope, faAnglesLeft, faBars, faHouse, faMagnifyingGlass, faFileWaveform, faNotesMedical, faKitMedical, faStethoscope, faGear, faArrowRightFromBracket, faUser)
 
 const vuetify = createVuetify({
     components,
