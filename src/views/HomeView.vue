@@ -1,81 +1,263 @@
 <template>
-  <div class="home">
-    <div class="sidebar" :class="{ active: isSidebarActive }">
-      <div class="logo_content">
-        <div class="logo">
-          <img class="logo" src="../assets/images/logoW.png" alt="">
-          <div class="logo_name">Diagnozer</div>
+  <body>
+    <div class="home">
+      <div class="sidebar" :class="{ active: isSidebarActive }">
+        <div class="logo_content">
+          <div class="logo">
+            <img class="logo" src="../assets/images/logoW.png" alt="">
+            <div class="logo_name">Diagnozer</div>
+          </div>
+          <font-awesome-icon :icon="['fas', 'bars']" id="btn" @click="toggleSidebar"/>
         </div>
-        <font-awesome-icon :icon="['fas', 'bars']" id="btn" @click="toggleSidebar"/>
-      </div>
-      <div class="profile_content">
-          <div class="profile">
-            <div class="profile_details">
-              <img src="../assets/images/profile.jpg" alt="">
-              <div class="name_user">
-                <div class="name">Adiat Rahman</div>
-                <div class="short_name">Adiat</div>
+        <div class="profile_content">
+            <div class="profile">
+              <div class="profile_details">
+                <img src="../assets/images/profile.jpg" alt="">
+                <div class="name_user">
+                  <div class="name">Adiat Rahman</div>
+                  <div class="short_name">Adiat</div>
+                </div>
               </div>
             </div>
-          </div>
+        </div>
+        <ul class="nav_list" style="margin-left: -40px;">
+          <li>
+            <a href="#">
+                <i><font-awesome-icon :icon="['fas', 'house']" /></i>
+                <span class="links_name">Home</span>
+          </a>
+          </li>
+          <li>
+            <span class="title_text" id="title">Diagnosis</span>
+          </li>
+          <li>
+            <a href="#">
+              <i><font-awesome-icon :icon="['fas', 'file-waveform']" /></i>
+              <span class="links_name">Current Diagnosis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i><font-awesome-icon :icon="['fas', 'notes-medical']" /></i>
+              <span class="links_name">Diagnosis History</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i><font-awesome-icon :icon="['fas', 'kit-medical']" /></i>
+              <span class="links_name">Search Diagnosis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i><font-awesome-icon :icon="['fas', 'stethoscope']" /></i>
+              <span class="links_name">Survey Diagnosis</span>
+            </a>
+          </li>
+          <li>
+            <span class="title_text" id="title">Users</span>
+          </li>
+          <li>
+            <a href="#">
+            <i><font-awesome-icon :icon="['fas', 'gear']" /></i>
+              <span class="links_name">User Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <i><font-awesome-icon :icon="['fas', 'arrow-right-from-bracket']" id="log_out"/></i>
+              <span class="links_name">Logout</span>
+            </a>
+          </li>
+        </ul>  
       </div>
-      <ul class="nav_list" style="margin-left: -40px;">
-        <li>
-          <a href="#">
-              <i><font-awesome-icon :icon="['fas', 'house']" /></i>
-              <span class="links_name">Home</span>
-        </a>
-        </li>
-        <li>
-          <span class="title_text" id="title">Diagnosis</span>
-        </li>
-        <li>
-          <a href="#">
-            <i><font-awesome-icon :icon="['fas', 'file-waveform']" /></i>
-            <span class="links_name">Current Diagnosis</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i><font-awesome-icon :icon="['fas', 'notes-medical']" /></i>
-            <span class="links_name">Diagnosis History</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i><font-awesome-icon :icon="['fas', 'kit-medical']" /></i>
-            <span class="links_name">Search Diagnosis</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i><font-awesome-icon :icon="['fas', 'stethoscope']" /></i>
-            <span class="links_name">Survey Diagnosis</span>
-          </a>
-        </li>
-        <li>
-          <span class="title_text" id="title">Users</span>
-        </li>
-        <li>
-          <a href="#">
-          <i><font-awesome-icon :icon="['fas', 'gear']" /></i>
-            <span class="links_name">User Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-          <i><font-awesome-icon :icon="['fas', 'arrow-right-from-bracket']" id="log_out"/></i>
-            <span class="links_name">Logout</span>
-          </a>
-        </li>
-      </ul>  
+      <div class="home_content">
+        <nav class="nav_head">
+          <ul>
+            <li class="title_page">Home</li>
+            <li class="subtitle_page">Quick Diagnosis Survey</li>
+            <li class="search-icon">
+              <i><font-awesome-icon :icon="['fas', 'magnifying-glass']" /></i>
+              <input type="search" placeholder="headache, low energy, other symptoms" id="search-diagnosis">
+            </li>
+            <li class="profile-icon">
+              <i><font-awesome-icon :icon="['fas', 'user']" /></i>
+            </li>
+            <li class="expand-icon">
+              <i><font-awesome-icon :icon="['fas', 'maximize']" /></i>
+            </li>
+          </ul>
+        </nav>
+        <div class="greetings">
+          <h1>Greetings, Adiat!</h1>
+          <p>Welcome Back</p>
+        </div>
+        <v-container style="max-width: 96%;">
+          <v-row justify="space-around">
+            <v-card width="2300" height="280" style="margin-bottom: 20px;">
+              <v-toolbar color="#003D5B" theme="dark" style="padding: 10px 0 10px 0;">
+                <template v-slot:prepend>
+                  <i style="margin-left: 10px; font-size: 30px;"><font-awesome-icon :icon="['fas', 'file-waveform']" /></i>
+                </template>
+
+                <v-toolbar-title class="text-h6" style="font-size: 24px;"> 
+                  Current Diagnosis 
+                  <v-toolbar-title class="text-subtitle-2"> Let’s see your current health information today! </v-toolbar-title>
+                </v-toolbar-title>
+                
+
+                <template v-slot:append>
+                  <v-btn style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'arrow-right']" /></v-btn>
+                </template>
+              </v-toolbar>
+
+              <v-card-text>
+                <div class="font-weight-bold ms-1 mb-2">Lorem Ipsum</div>
+              </v-card-text>
+            </v-card>
+          </v-row>
+        </v-container>
+
+        <v-container style="max-width: 96%;">
+          <v-row justify="start">
+            <v-card width="680" height="240" style="margin-right: 28px;">
+              <v-toolbar color="#003D5B" theme="dark" style="padding: 10px 0 10px 0;">
+                <template v-slot:prepend>
+                  <i style="margin-left: 10px; font-size: 30px;"><font-awesome-icon :icon="['fas', 'notes-medical']" /></i>
+                </template>
+
+                <v-toolbar-title class="text-h6" style="font-size: 24px;"> 
+                  Diagnosis Histories
+                  <v-toolbar-title class="text-subtitle-2"> Your past Quick Survey Diagnosis results is here. </v-toolbar-title>
+                </v-toolbar-title>
+                
+
+                <template v-slot:append>
+                  <v-btn style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'arrow-right']" /></v-btn>
+                </template>
+              </v-toolbar>
+
+              <v-card-text>
+                <div class="font-weight-bold ms-1 mb-2">Lorem Ipsum</div>
+              </v-card-text>
+            </v-card>
+
+            <v-card width="680" height="240">
+              <v-toolbar color="#003D5B" theme="dark" style="padding: 10px 0 10px 0;">
+                <template v-slot:prepend>
+                  <i style="margin-left: 10px; font-size: 30px;"><font-awesome-icon :icon="['fas', 'stethoscope']" /></i>
+                </template>
+
+                <v-toolbar-title class="text-h6" style="font-size: 24px;"> 
+                  Quick Diagnosis Survey
+                  <v-toolbar-title class="text-subtitle-2"> Let’s have a quick survey and see what you got!  </v-toolbar-title>
+                </v-toolbar-title>
+                
+
+                <template v-slot:append>
+                  <v-btn style="font-size: 20px;"><font-awesome-icon :icon="['fas', 'arrow-right']" /></v-btn>
+                </template>
+              </v-toolbar>
+
+              <v-card-text>
+                <div class="text-h6 text-center">Quick Diagnosis Survey</div>
+                <p class="subtitle-text-1 text-center">a Quick diagnosis will help you know yourself better</p>
+                <v-btn style="font-size: 14px; padding-left: 15px; margin-left: 220px;">
+                  <font-awesome-icon :icon="['fas', 'stethoscope']" style="margin-right: 10px;"/>
+                  Start Now!
+                </v-btn>
+              </v-card-text>
+            </v-card>
+          </v-row>
+        </v-container>
+        
+        <v-container style="max-width: 96%;" class="bottom">
+          <footer style="margin-top: 50px;">
+            <v-row justify="start">
+              <img class="logo" src="../assets/images/logo.png" alt="" style="width: 44px; height: 44px;">
+              <p class="text-h6" style="margin-left: 12px; margin-bottom: -20px;">
+                Diagnozer
+                <p class="text-subtitle-3" style="margin-top: -12px; font-size: 10px; margin-bottom: 2px;">SMART on FHIR Health Care System</p>
+                <v-btn style="font-size: 14px; padding-left: 15px;">
+                  <font-awesome-icon :icon="['fas', 'code']" style="margin-right: 10px;"/>
+                  Documentation
+                </v-btn>
+              </p>
+              <div id="vertical-line"></div>
+              <div>
+                <p class="text-h6" style="font-size: 16px; margin-top: -10px; margin-bottom: 5px;">Our Developers and Team</p>
+                <v-card
+                  class="mx-auto"
+                  width="262"
+                  style="height: 75px; border-radius: 8px;"
+                >
+                  <p style="margin-left: 60px; margin-top: 10px; margin-bottom: 5px;">
+                    <font-awesome-icon :icon="['fab', 'github']" style="font-size: 24px; margin-right: 5px;"/>
+                    Kevin Yapade
+                  </p>
+                  <p style="margin-left: 60px;">
+                    <font-awesome-icon :icon="['fab', 'linkedin']" style="font-size: 24px; margin-right: 5px;"/>
+                    Kevin Yapade
+                  </p>
+                </v-card>
+              </div>
+
+              <div style="margin-top: 27px; margin-left: 12px;">
+                <v-card
+                  class="mx-auto"
+                  width="262"
+                  style="height: 75px; border-radius: 8px;"
+                >
+                  <p style="margin-left: 60px; margin-top: 10px; margin-bottom: 5px;">
+                    <font-awesome-icon :icon="['fab', 'github']" style="font-size: 24px; margin-right: 5px;"/>
+                    Adiat Rahman
+                  </p>
+                  <p style="margin-left: 60px;">
+                    <font-awesome-icon :icon="['fab', 'linkedin']" style="font-size: 24px; margin-right: 5px;"/>
+                    Adiat Rahman
+                  </p>
+                </v-card>
+              </div>
+
+              <div style="margin-top: 27px; margin-left: 12px;">
+                <v-card
+                  class="mx-auto"
+                  width="262"
+                  style="height: 75px; border-radius: 8px;"
+                >
+                  <p style="margin-left: 60px; margin-top: 10px; margin-bottom: 5px;">
+                    <font-awesome-icon :icon="['fab', 'github']" style="font-size: 24px; margin-right: 5px;"/>
+                    Fairuz Akbar
+                  </p>
+                  <p style="margin-left: 60px;">
+                    <font-awesome-icon :icon="['fab', 'linkedin']" style="font-size: 24px; margin-right: 5px;"/>
+                    Fairuz Akbar
+                  </p>
+                </v-card>
+              </div>
+
+              <div style="margin-top: 27px; margin-left: 12px;">
+                <v-card
+                  class="mx-auto"
+                  width="262"
+                  style="height: 75px; border-radius: 8px;"
+                >
+                  <p style="margin-left: 60px; margin-top: 10px; margin-bottom: 5px;">
+                    <font-awesome-icon :icon="['fab', 'github']" style="font-size: 24px; margin-right: 5px;"/>
+                    Hendrianto Try
+                  </p>
+                  <p style="margin-left: 60px;">
+                    <font-awesome-icon :icon="['fab', 'linkedin']" style="font-size: 24px; margin-right: 5px;"/>
+                    Hendrianto Try
+                  </p>
+                </v-card>
+              </div>
+            </v-row>
+          </footer>
+        </v-container>
+      </div>
     </div>
-    <div class="home_content">
-      
-      <div class="text">Home Content</div>
-      
-    </div>
-  </div>
+  </body>
 </template>
 
 <script>
@@ -100,6 +282,10 @@ export default {
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap');
+
+body{
+  background-color: rgb(244,246,249);
+}
 
 .home{
   position: relative;
@@ -261,7 +447,6 @@ export default {
   width: calc(100% - 240px);
   left: 240px;
   transition: all 0.5s ease;
-  background-color: #F4F6F9;
 }
 
 .sidebar.active ~.home_content{
@@ -273,5 +458,79 @@ export default {
   font-size: 25px;
   font-weight: 500;
   margin: 12px;
+}
+
+.home_content .nav_head{
+  background: #ffffff;
+  padding: 20px 40px 5px 0px;
+
+}
+
+.home_content .nav_head ul{
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_content .nav_head ul li.title_page{
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.home_content .nav_head ul li.subtitle_page{
+  flex: 2 620px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #767676;
+}
+
+.home_content .nav_head ul li.search-icon{
+  margin-right: 30px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  width: 500px;
+}
+
+.home_content .nav_head ul li.search-icon input{
+  margin-right: 10px;
+  width: 80%;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 8px 10px;
+}
+
+.home_content .nav_head ul li.search-icon i{
+  padding: 10px;
+}
+
+.home_content .nav_head ul li.profile-icon i{
+  margin-right: 30px;
+  font-size: 18px;
+}
+
+.home_content .nav_head ul li.expand-icon i{
+  font-size: 18px;
+}
+
+.home_content .greetings {
+  margin-left: 32px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.home_content .greetings h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+#vertical-line{
+  width: 1px;
+  height: 100px;
+  background-color: black;
+  margin-left: 28px;
+  margin-right: 28px;
 }
 </style>
