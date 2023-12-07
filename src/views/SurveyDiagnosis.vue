@@ -89,7 +89,7 @@
           </ul>
         </nav>
         <div class="breadcrumb-page">
-          <v-breadcrumbs :items="items" style="justify-content: flex-end;">
+          <v-breadcrumbs :items="items" style="justify-content: flex-end; margin-left: -11px;">
             <template v-slot:divider>
               <v-icon style="font-size: 16px;"><font-awesome-icon :icon="['fas', 'angle-right']" /></v-icon>
             </template>

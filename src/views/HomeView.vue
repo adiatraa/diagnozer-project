@@ -121,7 +121,7 @@
 
         <v-container style="max-width: 96%;">
           <v-row justify="flex-start">
-            <v-card width="940" height="240" style="margin-right: 28px;" class="card-progressive">
+            <v-card width="930" height="240" style="margin-right: 28px;" class="card-progressive">
               <v-toolbar color="#003D5B" theme="dark" style="padding: 10px 0 10px 0;">
                 <template v-slot:prepend>
                   <i style="margin-left: 10px; font-size: 30px;"><font-awesome-icon :icon="['fas', 'notes-medical']" /></i>
