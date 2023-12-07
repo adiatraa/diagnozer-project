@@ -482,6 +482,7 @@ body{
 .home_content .breadcrumb-page {
   margin-left: 1200px;
   margin-top: 20px;
+  margin-right: 20px;
 }
 
 #vertical-line{
